@@ -1,0 +1,52 @@
+<section>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-header border-bottom">
+          <h4>{{title}}</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formadd" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="form-group mb-3">
+                <label class="mb-2">FirstName</label>
+                <input type="text" formControlName="firstName" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                  <div *ngIf="f['firstName'].errors">FirstName is required</div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label class="mb-2">LastName</label>
+                <input type="text" formControlName="lastName" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+                <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                  <div *ngIf="f['lastName'].errors">LastName is required</div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label class="mb-2">Email</label>
+                <input type="text" formControlName="email" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors">Email is required</div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label class="mb-2">Phone Number</label>
+                <input type="text" formControlName="phoneNumber" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" />
+                <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                  <div *ngIf="f['phoneNumber'].errors">Phone is required</div>
+                </div>
+              </div>
+            </div>
+
+            <button [disabled]="loading" type="submit" class="btn btn-success me-3">{{btnText}}</button>
+            <button type="button" class="btn btn-outline-danger" (click)="btnCancel()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
